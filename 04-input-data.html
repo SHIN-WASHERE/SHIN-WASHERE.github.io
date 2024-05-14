@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <form action="" method="post">
+        input name : <input type="text" name="fname1" id="fname1">
+        <br>
+        <br>
+        <input type="submit" value="submit" onclick="document.getElementById('content').innerHTML=document.getElementById('fname1').value">    
+        <input type="reset" value="reset">
+    </form>
+     input Name : <input type="text" name="fname2" id="fname2">
+     <br>
+     <br>
+     <input type="submit" value="submit" onclick="document.getElementById('content').innerHTML=document.getElementById('fname2').value">    
+     <input type="reset" value="reset" onclick="document.getElementById('fname2').value=null ">
+    <p id="content"></p>
+</body>
+</html>

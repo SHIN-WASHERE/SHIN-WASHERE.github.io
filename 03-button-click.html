@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .button{    
+            border:outset;
+            border-color: rgb(196, 176, 255);
+            border-radius: 5px;
+
+        }
+        .b1{
+            color: white;
+            background-color: green;
+        }
+        .b2{
+            color: white;
+            background-color: red;
+        }
+        .b3{
+            background-color: black;
+            color: white;
+        
+            
+        }
+
+    </style>
+</head>
+<body>
+    <input type="button" class="button b2"  onclick="alert('i said dont press me!')" value="Dont press me !">
+    <br>
+    <br>
+    <button class="button b1" onclick="alert('thx')">Press me</button>
+    <br>
+    <br>
+    <button class="button " onclick="document.write('ou i wont let u go ')">nah im out</button>
+    <br>
+    <br>
+    <button onclick="document.getElementById('content').innerHTML='Hello'">Click here</button>
+    <br>
+    <p id="content">Hello</p>
+</body>
+</html>
