@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <title>SHIN</title>
+    <style>
+        .jumpbotron{
+            position: relative;
+            overflow: hidden;
+   
+            
+
+        }
+        video{
+            position:absolute;
+            z-index: 1;
+            top: 0;
+            width: 1600px;
+            height: 400px;
+            object-fit: cover;
+            opacity: 50%;
+        }
+        .container{
+            z-index: 1;
+            position: relative;
+        }
+        body{
+            background-color: #DFDBE5;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4' viewBox='0 0 4 4'%3E%3Cpath fill='%23a29c28' fill-opacity='0.4' d='M1 3h1v1H1V3zm2-2h1v1H3V1z'%3E%3C/path%3E%3C/svg%3E");
+        }
+
+    </style>
+
+    
+</head>
+<body>
+    <div class="jumpbotron bg-dark text-white">
+        <video src="https://cdn.pixabay.com/video/2019/03/03/21758-321309738_large.mp4" autoplay loop muted></video>
+        <div class="container">
+           
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <h1>KANNAPHAT POOJAITRONG</h1>
+            <p>Do  everythings when you still can do!!</p>
+            <br>
+            <br>
+            <br> 
+            <br>
+            <br>
+            <br>
+            
+       </div>
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">SHINWASHERE</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">about  </a>
+              </li>
+              
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+      <div class="card mt-4 mx-auto" style="width: 25rem; ">
+        <img src="./img/fish.gif" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title " style="color: rgb(5, 226, 255);">i just a fish</h5>
+          <p class="card-text" style="color: darkcyan;">
+            <!-- <form> -->
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">fish name</label>
+              <input type="text" class="form-control" id="sname"  name="sname">
+              <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Show number</label>
+              <input type="text" class="form-control" id="phone">
+            </div>
+            <div class="mb-3 form-check">
+            </div>
+            <label class="form-label">Department</label>
+            <select class="mb- form-select" id="dept">
+                <option selected>Department</option>
+                <option value="ช่างยนต์">ช่างยนต์</option>
+                <option value="คอมพิวเตอร์ธุรกิจ">คอมพิวเตอร์ธุรกิจ</option>
+                <option value="เทคโนโลยีสารสนเทศ">เทคโนโลยีสารสนเทศ</option>
+              </select>
+              <br>
+            <button type="submit" class="btn btn-primary" onclick="submit_click()" >Submit</button>
+            <button type="reset" class="btn btn-danger" onclick="">reset</button>
+          <!-- </form> -->
+          
+          <!-- <a href="#" class="btn btn-primary">BECOME FISH</a> -->
+          <br>
+          <br>
+          <div class="m-3">
+                     <p id="output1"> </p>
+                     <p id="output2"> </p>
+                     <p id="output3"> </p>
+           </div>         
+        </div>
+      </div>
+
+      <script>
+        function submit_click() {
+            
+            document.getElementById('output1').innerHTML= document.getElementById('sname').value
+            document.getElementById('output2').innerHTML= document.getElementById('phone').value
+            document.getElementById('output3').innerHTML= document.getElementById('dept').value
+        }
+        
+      </script>
+
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Score to Grade</title>
+
+    <script> 
+        let score
+
+        function click_submit() {
+            let score = document.getElementById('score').value
+            console.log(score)
+    
+            if (score > 0){
+                alert('ตัวเลขระหว่าง 0-100เท่านั้น')
+                document.getElementById('score').value = null
+            }else if(score > 0 && score < 50){
+                document.getElementById('output').innerHTML='Grade = 0'
+            } else if (score > 49  && score <60){
+                document.getElementById('output').innerHTML='Grade = 1'
+            } else if (score > 59  && score <70){
+                document.getElementById('output').innerHTML='Grade = 2'
+            } else if (score >69  && score < 80){
+                document.getElementById('output').innerHTML='Grade = 3'
+            } else if (score >79  && score <= 100){
+                document.getElementById('output').innerHTML='Grade = 4'
+            }else {
+                alert('ตัวเลขระหว่าง0 - 100 เท่านั้น')
+                document.getElementById('score').value = null
+            }
+        }
+    </script>
+</head>
+<body>
+    ป้อนคะแนน  (0-100) : <input type="number" name ="score" id="score">
+    <br>
+    <br>
+    <button onclick="click_submit()">submit</button>
+    <br><br>
+    <p id="output"></p>
+    
+
+</body>
+</html>
