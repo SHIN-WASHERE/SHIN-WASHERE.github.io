@@ -103,7 +103,7 @@
               </select>
               <br>
             <button type="submit" class="btn btn-primary" onclick="submit_click()" >Submit</button>
-            <button type="reset" class="btn btn-danger" onclick="">reset</button>
+            <button type="reset" class="btn btn-danger" onclick="reset()">reset</button>
           <!-- </form> -->
           
           <!-- <a href="#" class="btn btn-primary">BECOME FISH</a> -->
@@ -123,6 +123,12 @@
             document.getElementById('output1').innerHTML= document.getElementById('sname').value
             document.getElementById('output2').innerHTML= document.getElementById('phone').value
             document.getElementById('output3').innerHTML= document.getElementById('dept').value
+        }
+            function reset() {
+            
+            document.getElementById('sname').value = null
+            document.getElementById('phone').value = null
+            document.getElementById('dept').value = null
         }
         
       </script>
