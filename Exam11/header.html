@@ -1,0 +1,95 @@
+
+<div class="jumpbotron bg-dark text-white">
+    <video src="https://cdn.pixabay.com/video/2019/03/03/21758-321309738_large.mp4" autoplay loop muted></video>
+    <div class="container">
+       
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <h1>KANNAPHAT POOJAITRONG</h1>
+        <p>Do  everythings when you still can do!!</p>
+        <br>
+        <br>
+        <br> 
+        <br>
+        <br>
+        <br>
+        
+   </div>
+</div>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-warning">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">SHIN</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="page1.html">Page 1</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="page2.html">Page 2</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Dropdown
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="page1.html">Page 1</a></li>
+              <li><a class="dropdown-item" href="page2.html">Page 2</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="#">Something else here</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled">Disabled</a>
+          </li>
+        </ul>
+        <p id="output1" class="me-2"></p>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+        <ul class="navbar-nav  mb-2 mb-lg-0">
+            <a class="nav-link mx-auto" href="Login.html" id="log" >Login</a>
+            <button type="button" class="btn btn-danger me-2" id="btn_logout" onclick="click_Logout()">Logout</button>
+        </ul>
+        </div>
+    </div>
+  </nav>
+  
+  <script>
+
+    
+
+    if( sessionStorage.getItem('User')!= null)
+    
+    {
+    
+    document.getElementById('output1').innerHTML = 'SUP bro ' + sessionStorage.getItem('User')
+    document.getElementById('btn_logout').hidden = false
+    document.getElementById('log').hidden = true
+  
+    }else {
+      document.getElementById('log').hidden = false
+      document.getElementById('btn_logout').hidden = true
+    }
+
+
+    function click_Logout () {
+      sessionStorage.clear();
+      document.getElementById('log').hidden = false
+      document.getElementById('btn_logout').hidden = true
+      document.getElementById('output1').innerHTML = null
+      location.href = 'index.html'
+
+    }
+  </script>

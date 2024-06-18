@@ -1,0 +1,77 @@
+<div class="card mt-4 mx-auto" style="width: 25rem;">
+        <img src="https://cdn.pixabay.com/photo/2020/06/13/17/51/milky-way-5295160_1280.jpg"; class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title" style="color: brown;">Student Data</h5>
+          <p class="card-text">
+            <!-- <form> -->
+              <div class="mb-3">
+                <label class="form-label">Student Name</label>
+                <input type="text" class="form-control" id="sname" name="sname">
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Phone Number</label>
+                <input type="text" class="form-control" id="phone" name="phone">
+              </div>
+              <div class="mb-3">
+                <label class="form-label">Department</label>
+                <select class="form-select" id="dept" name="dept">
+                  <option selected>Please Select</option>
+                  <option value="ช่างยนต์">ช่างยนต์</option>
+                  <option value="เทคโนโลยีธุรกิจดิจิทัล">เทคโนโลยีธุรกิจดิจิทัล</option>
+                  <option value="เทคโนโลยีสารสนเทศ">เทคโนโลยีสารสนเทศ</option>
+                </select>
+              </div>
+
+              <button type="submit" class="btn btn-primary w-25" onclick="submit_click()">Submit</button>
+              <button type="reset" class="btn btn-primary w-25">Reset</button>
+            <!-- </form> -->
+          </p>
+          <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+          <p id="output1"></p>
+          <p id="output2"></p>
+          <p id="output3"></p>
+        </div>
+      </div>
+
+      <script>
+        let sname = []
+        let phone = []
+        let dept = []
+        function submit_click() {
+          sname.push(document.getElementById('sname').value)
+          phone.push(document.getElementById('phone').value)  
+          dept.push(document.getElementById('dept').value)
+          localStorage.setItem('sname', JSON.stringify(sname))
+          localStorage.setItem('phone', JSON.stringify(phone))
+          localStorage.setItem('dept', JSON.stringify(dept))
+
+          document.getElementById('sname').value = null
+          document.getElementById('phone').value = null
+          document.getElementById('dept').selectedIndex = 0
+
+        }
+
+        function get_data() {
+         
+            sname = JSON.parse(localStorage.getItem('sname'))
+            phone = JSON.parse(localStorage.getItem('phone'))
+            dept = JSON.parse(localStorage.getItem('dept'))
+
+            if (sname == null) {
+                sname = []
+            }
+
+            if (phone == null) {
+                phone = []
+            }
+
+            if (dept == null) {
+                dept = []
+            }
+
+            console.log(sname)
+        }
+
+
+
+      </script>

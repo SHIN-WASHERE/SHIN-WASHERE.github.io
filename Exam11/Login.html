@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script>
+        
+        $(function (){
+
+            $('head').load('head.html')
+            $('#header').load('header.html')
+
+        })
+
+    </script>
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+<div id="header"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script></body>
+<!-- <div class="container mt-5">
+  
+     <h1>Kannaphat  </h1>
+  </div>
+<div class="container">
+    <div class="row mt-5">
+      <div class="col ">
+        <h1>Kannaphat</h1>
+      </div>
+    </div>
+  </div> -->
+  <div class="col-3 bg-light mx-auto mt-5 p-3 border">
+        
+        <div class="mb-3">
+          <label  class="form-label">User Name</label>
+          <input type="text" class="form-control" id="User" required>
+        </div>
+        <div class="mb-3">
+          <label  class="form-label">Password</label>
+          <input type="password" class="form-control" id="Pass" requiredw>
+        </div>
+        <button type="submit" class="btn btn-primary" onclick="click_submit()">Submit</button>
+        <button type="reset" class ="btn btn-outline-danger" onclick=" clear_data()">reset</button>
+      </form>
+  </div>
+  
+<script>
+    let u = 'admin'
+    let p ='1234'
+
+
+
+    function click_submit()  {
+        if (u == document.getElementById('User').value&& p == document.getElementById('Pass').value)  {
+
+            alert('Login sucess')
+            sessionStorage.setItem('User',document.getElementById('User').value)    
+           
+            if( sessionStorage.getItem('User')!= null)
+            {
+                document.getElementById('output1').innerHTML = 'SUP bro ' + sessionStorage.getItem('User')
+                document.getElementById('log').hidden = true
+                document.getElementById('btn_logout').hidden = false
+            }
+        }else {
+            
+            alert('Fail to login')
+            clear_data()
+        }
+    }
+
+    function clear_data () {
+
+            document.getElementById('User').value = null
+            document.getElementById('Pass').value = null
+    }
+
+
+</script>
+
+
+</body>
+</html>

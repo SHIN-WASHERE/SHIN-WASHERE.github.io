@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
+    <script>
+        
+        $(function (){
+
+            $('head').load('head.html')
+            $('#header').load('header.html')
+
+        })
+
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page 2 </title>
+</head>
+<body class="width" onload="click_load_data()">
+    
+
+<div id="header"></div>
+<H1>page2</H1>
+
+
+<div class="col-8 mt-5 mx-auto  bg-light p-3  border">
+
+    <button id="add_new_data" type="button" class="btn btn-success mb-3 border" onclick="click_add_new_data()">Add new data</button>
+    <!-- <button id="load_data" type="button" class="btn btn-info mb-3 border" onclick="click_load_data()">load data</button> -->
+
+    <table id = "tb1"class="table table-bordered border border-dark border-3 table-hover table-striped">
+        <thead>
+          <tr>
+            <th scope="col">SID</th>
+            <th scope="col">SNAME</th>
+            <th scope="col">PHONE</th>
+          </tr>
+        </thead>
+        <tbody>
+         
+        </tbody>
+      </table>
+      
+
+</div>
+
+
+
+<script>
+    let tb1 = document.getElementById('tb1').getElementsByTagName('tbody')[0]
+    let row 
+    let SID = []
+    let SNAME = []
+    let PHONE = []
+
+    if(sessionStorage.getItem('User') == null ){
+        alert('please login first ')
+        location.href="Login.html"
+
+    }
+
+
+
+    function click_add_new_data() {
+            row = tb1.insertRow();
+            row.insertCell().innerHTML = '<input type="text" class="form-control" id="SID" placeholder="Student ID">';
+            row.insertCell().innerHTML = '<input type="text" class="form-control" id="SNAME" placeholder="Student Name">';
+            row.insertCell().innerHTML = '<input type="text" class="form-control" id="PHONE" placeholder="Phone">';
+            row.insertCell().innerHTML = '<button type="button" class="btn btn-success mb-3" onclick="click_save_data()">Save</button> <button type="button" class="btn btn-danger mb-3" onclick="click_cancel()">Cancel</button>';
+            document.getElementById("add_new_data").disabled = true;
+        }
+
+    function click_save_data() {
+
+            SID.push(document.getElementById('SID').value);
+            SNAME.push(document.getElementById('SNAME').value);
+            PHONE.push(document.getElementById('PHONE').value);
+
+            localStorage.setItem('SID', JSON.stringify(SID));
+            localStorage.setItem('SNAME', JSON.stringify(SNAME));
+            localStorage.setItem('PHONE', JSON.stringify(PHONE));
+
+            document.getElementById("add_new_data").disabled = false;
+            click_load_data();
+        }
+
+    function click_load_data() {
+
+        try {
+        SID = JSON.parse(localStorage.getItem('SID'))
+        SNAME= JSON.parse(localStorage.getItem('SNAME'))
+        PHONE = JSON.parse(localStorage.getItem('PHONE'))
+
+            tb1.innerHTML = '';
+            for (let i = 0; i < SID.length; i++) {
+                row = tb1.insertRow();
+                row.insertCell().innerHTML = SID[i];
+                row.insertCell().innerHTML = SNAME[i];
+                row.insertCell().innerHTML = PHONE[i];
+                row.insertCell().innerHTML ='<button type="button" class="btn table-button btn-primary mb-3 " onclick="click_edit_data('+ i +')">EDIT</button>' + '<button type="button" class="btn table-button btn-danger mb-3 " onclick=" click_delete_data('+ i +')">Delete</button>'
+                
+
+            }
+        } catch (error) { if (SID == (null)){
+
+            SID = []
+            SNAME = []
+            PHONE = []
+
+        localStorage.setItem('SID', JSON.stringify(SID));
+        localStorage.setItem('SNAME', JSON.stringify(SNAME));
+        localStorage.setItem('PHONE', JSON.stringify(PHONE));
+        }
+            
+    }
+
+
+     
+        }   
+
+        function click_cancel() {
+            tb1.deleteRow(tb1.rows.length - 1)
+            load_data()
+            document.getElementById('add_data').disabled = false
+        }
+
+
+    function click_delete_data(i) {
+
+        // delete SID[i]
+        // delete SNAME[i]
+        // delete PHONE[i]
+
+        if (confirm('you sure ?')){
+
+        SID.splice(i,1)
+        SNAME.splice(i,1)
+        PHONE.splice(i,1)
+
+
+        // console.log(SID)
+        // console.log(SNAME)
+        // console.log(PHONE)
+
+        localStorage.setItem('SID', JSON.stringify(SID));
+        localStorage.setItem('SNAME', JSON.stringify(SNAME));
+        localStorage.setItem('PHONE', JSON.stringify(PHONE));
+
+
+        click_load_data()
+
+        }
+    }
+
+   function click_edit_data (i) {
+
+    
+
+    tb1.rows[i].cells[0].innerHTML = '<input type="text" class="form-control" id="SID" placeholder="Student ID" value="'+SID[i]+'">'
+    tb1.rows[i].cells[1].innerHTML = '<input type="text" class="form-control" id="SNAME" placeholder="Student Name" value=" ' + SNAME[i] + ' ">'
+    tb1.rows[i].cells[2].innerHTML = '<input type="text" class="form-control" id="PHONE" placeholder="Input Student Phone" value=" ' + [i] + ' ">'
+    tb1.rows[i].cells[3].innerHTML = '<button type="button" class="btn btn-outline-success mb-3 " onclick="click_save_edit_data('+i+')">Save</button> <button type="button" class="btn btn-danger mb-3" onclick="click_cancel_edit_data()">Cancel</button>';
+            
+    let tableButtons = document.querySelectorAll('.table-button');
+    for(var i = 0; i < tableButtons.length; i++) {
+    tableButtons[i].disabled = true;
+    }
+
+}
+
+
+
+   function click_save_edit_data(i){
+    SID[i] = document.getElementById('SID').value
+    SNAME [i] = document.getElementById('SNAME').value
+    PHONE [i] = document.getElementById('PHONE').value
+
+    localStorage.setItem('SID', JSON.stringify(SID));
+    localStorage.setItem('SNAME', JSON.stringify(SNAME));
+    localStorage.setItem('PHONE', JSON.stringify(PHONE));
+
+    click_load_data()
+
+   }
+
+   function click_cancel_edit_data(){
+    click_load_data()
+
+   }
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script></body>
+
+</body>
+</html>
+
+
+
+
+  
